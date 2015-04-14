@@ -129,6 +129,8 @@ Error message and password prompt
 
 <li>$:/state/showeditpreview</li>
 
+<li>$:/state/sidebar</li>
+
 <li>$:/state/tab/sidebar--1835078512</li>
 
 <li>$:/StoryList</li>
@@ -143,7 +145,33 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Akl, S. G. &quot;Optimal parallel algorithms for computing convex hulls and for sorting.&quot; Computing 33.1 (1984): 1-11.</li>
+
+<li>Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. &quot;Parallel algorithms for higher-dimensional convex hulls.&quot; Foundations of Computer Science, 1994 Proceedings., 35th Annual Symposium on. IEEE, 1994.</li>
+
+<li>Atallah, Mikhail J., and Michael T. Goodrich. &quot;Efficient parallel solutions to some geometric problems.&quot; Journal of Parallel and Distributed Computing 3.4 (1986): 492-507.</li>
+
+<li>Day, A. M. &quot;Parallel implementation of 3D convex-hull algorithm.&quot; Computer-Aided Design 23.3 (1991): 177-188.</li>
+
+<li>Dehne, Frank, et al. &quot;A randomized parallel 3D convex hull algorithm for coarse grained multicomputers.&quot; Proceedings of the seventh annual ACM symposium on Parallel algorithms and architectures. ACM, 1995.</li>
+
+<li>Diallo, Mohamadou, et al. &quot;Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers.&quot; Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.</li>
+
+<li>Dıaz, Pedro, Diego R. Llanos, and Belén Palop. &quot;Parallelizing 2D-convex hulls on clusters: sorting matters.&quot; Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.</li>
+
+<li>Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;Fast randomized parallel methods for planar convex hull construction.&quot; Computational Geometry 7.4 (1997): 219-235.</li>
+
+<li>Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;In-place techniques for parallel convex hull algorithms (preliminary version).&quot; Proceedings of the third annual ACM symposium on Parallel algorithms and architectures. ACM, 1991.</li>
+
+<li>List of papers</li>
+
+<li>Miller, Russ, and Quentin F. Stout. &quot;Efficient parallel convex hull algorithms.&quot; Computers, IEEE Transactions on 37.12 (1988): 1605-1618.</li>
+
+<li>Srungarapu, Srikanth, et al. &quot;Fast two dimensional convex hull on the GPU.&quot; Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.</li>
+
 <li>Summary</li>
+
+<li>Tiskin, Alexandre. &quot;Parallel convex hull computation by generalised regular sampling.&quot; Euro-Par 2002 Parallel Processing. Springer Berlin Heidelberg, 2002. 392-399.</li>
 
 <li>Topic Selection</li>
 
@@ -5382,10 +5410,13 @@ Error message and password prompt
 <div modified="20150220172936975" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
+<div modified="20150402002646365" title="$:/state/sidebar">
+<pre>yes</pre>
+</div>
 <div modified="20150220173033991" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Open</pre>
 </div>
-<div list="Summary" title="$:/StoryList">
+<div list="[[List of papers]] [[Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;Fast randomized parallel methods for planar convex hull construction.&quot; Computational Geometry 7.4 (1997): 219-235.]] [[Day, A. M. &quot;Parallel implementation of 3D convex-hull algorithm.&quot; Computer-Aided Design 23.3 (1991): 177-188.]] [[Tiskin, Alexandre. &quot;Parallel convex hull computation by generalised regular sampling.&quot; Euro-Par 2002 Parallel Processing. Springer Berlin Heidelberg, 2002. 392-399.]] [[Dıaz, Pedro, Diego R. Llanos, and Belén Palop. &quot;Parallelizing 2D-convex hulls on clusters: sorting matters.&quot; Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.]] [[Srungarapu, Srikanth, et al. &quot;Fast two dimensional convex hull on the GPU.&quot; Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.]] [[Akl, S. G. &quot;Optimal parallel algorithms for computing convex hulls and for sorting.&quot; Computing 33.1 (1984): 1-11.]] [[Diallo, Mohamadou, et al. &quot;Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers.&quot; Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.]] Summary" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5485,6 +5516,134 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20150402002155658" modified="20150402002204010" title="Akl, S. G. &quot;Optimal parallel algorithms for computing convex hulls and for sorting.&quot; Computing 33.1 (1984): 1-11.">
+<pre>http://link.springer.com/article/10.1007/BF02243071
+
+A parallel algorithm is presented for computing the convex hull of a set ofn points in the plane. The algorithm usesn 1−ε processors, 0&lt;ε&lt;1, and runs inO(n ε logh) time, whereh is the number of edges on the convex hull, for a total cost ofO (n logh). This performance matches that of the best currently known sequential convex hull algorithm. In addition, sinceh≤n, the algorithm is worst-case optimal in view of the Ω (n logn) worst-case lower bound on sequential convex hull computation. It is also shown that the convex hull algorithm leads to a parallel sorting algorithm whose total cost isO(n logn), which is optimal.</pre>
+</div>
+<div created="20150402001634785" modified="20150402001851425" title="Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. &quot;Parallel algorithms for higher-dimensional convex hulls.&quot; Foundations of Computer Science, 1994 Proceedings., 35th Annual Symposium on. IEEE, 1994.">
+<pre>We give fast randomized and deterministic parallel methods for constructing convex hulls in Rd, for any fixed d. Our methods are for the weakest shared-memory model, the EREW PRAM, and have optimal work bounds (with high probability for the randomized methods). In particular, we show that the convex hull of n points in Rd can be constructed in O(log n) time using O(n log n+n[d/2]) work, with high probability. We also show that it can be constructed deterministically in O(log2 n) time using O(n log n) work for d=3 and in O(log n) time using O(n[d/2] logc([d2]-[d/2]/) n) work for d⩾4, where c&gt;0 is a constant which is optimal for even d⩾4. We also show how to make our 3-dimensional methods output-sensitive with only a small increase in running time. These methods can be applied to other problems as well</pre>
+</div>
+<div created="20150402001500667" modified="20150402001619241" title="Atallah, Mikhail J., and Michael T. Goodrich. &quot;Efficient parallel solutions to some geometric problems.&quot; Journal of Parallel and Distributed Computing 3.4 (1986): 492-507.">
+<pre>http://www.inf.unideb.hu/~fazekasg/oktatas/Parhuzamos_prog/Parallel_algorithms_by_Blelloch_et_al.pdf
+
+Tis a book</pre>
+</div>
+<div created="20150402002544408" modified="20150402002602620" title="Day, A. M. &quot;Parallel implementation of 3D convex-hull algorithm.&quot; Computer-Aided Design 23.3 (1991): 177-188.">
+<pre>http://www.sciencedirect.com/science/article/pii/001044859190087D
+
+The paper presents a parallel implementation of a 3D convex-hull algorithm on a Meiko Computing Surface using occam and c. The parallel program is adapted from a serial divide-and-conquer version; the outline of the serial version is also given. Details relating to the practical problems involved in the parallelization of such a geometric algorithm are reported. The performance of the parallel program is monitored for several different sizes of network, and compared with the performance of the serial version running on a Sun workstation. Experimental results are presented, and suggestions for further developments of the implementation are also discussed.</pre>
+</div>
+<div created="20150402001054396" modified="20150402001153857" title="Dehne, Frank, et al. &quot;A randomized parallel 3D convex hull algorithm for coarse grained multicomputers.&quot; Proceedings of the seventh annual ACM symposium on Parallel algorithms and architectures. ACM, 1995.">
+<pre>http://www.researchgate.net/profile/Patrick_Dymond/publication/2401577_A_Randomized_Parallel_3D_Convex_Hull_Algorithm_For_Coarse_Grained_Multicomputers/links/0deec51fac71164afb000000.pdf
+
+http://dl.acm.org/citation.cfm?id=215410
+
+We present a randomized parallel algorithm for constructing
+the 3D convex hull on a generic p-processor
+coarse grained multicomputer with arbitrary interconnection
+network and n/p local memory per processor,
+where ~ z p’+’ (for some arbitrarily small
+c &gt; O). For any given set of n points in 3-space, the
+algorithm computes the 3D convex hull, with high
+probability, in 0(w) local computation time
+and 0(1 ) communication phases with at most 0(~)
+data sent/received by each processor. That is, with
+high probability, the algorithm computes the 3D
+convex hull of an arbitrary point set in time 0(*
++ I’~,P), where I’~,P denotes the time complexity of
+one communication phase.
+In the terminology of the BSP model, our algorithm
+requires, with high probability, O(1) supersteps
+and a synchronization period @(%). In
+the LogP model, the execution time of our algorithm
+is asymptotically optimaJ for several architectures.
+
+</pre>
+</div>
+<div created="20150402002003219" modified="20150402002110141" title="Diallo, Mohamadou, et al. &quot;Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers.&quot; Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.">
+<pre>http://web.cs.dal.ca/~arc/publications/2-12/paper.pdf
+
+In this paper we describe scalable parallel algorithms for building the Convex Hull and a Triangulation of a given point set in R 2. These algorithms are designed for the coarse grained multicomputer model: p processors with O(n/p)≫O(1) local memory each, connected to some arbitrary interconnection network (e.g. mesh, hypercube, omega). They require time O(Tsequential/p+Ts (n, p)), where Ts(n, p) refers to the time of a global sort of n data on a p processor machine. Furthermore, they involve only a constant number of global communication rounds. Since computing either 2d Convex Hull or Triangulation requires time Tsequential=Θ(n log n n) these algorithms either ran in optimal time, Θ(n log n/p), or in sort time, Ts(n, p), for the interconnection network in question. These results become optimal when Tsequential/p dominates Ts (n, p), for instance when randomized sorting algorithms are used, or for interconnection networks like the mesh for which optimal sorting algorithms exist</pre>
+</div>
+<div created="20150402002352043" modified="20150402002426540" title="Dıaz, Pedro, Diego R. Llanos, and Belén Palop. &quot;Parallelizing 2D-convex hulls on clusters: sorting matters.&quot; Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.">
+<pre>http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.75.6660&amp;rep=rep1&amp;type=pdf
+
+This article explores three basic approaches
+to parallelize the planar Convex Hull on
+computer clusters. Methods which are based on sorting
+the points are found to be inadequate for computer
+clusters due to the communication costs involved.</pre>
+</div>
+<div created="20150402002628011" modified="20150402002642570" title="Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;Fast randomized parallel methods for planar convex hull construction.&quot; Computational Geometry 7.4 (1997): 219-235.">
+<pre>http://www.sciencedirect.com/science/article/pii/0925772195000364
+
+We present a number of efficient parallel algorithms for constructing 2-dimensional convex hulls on a randomized CRCW PRAM. Specifically, we show how to build the convex hull of n presorted points in the plane in O(1) time using O(n log n) work, with n-exponential probability, or, alternately, in  time using O(n) work, with n-exponential probability. We also show how to find the convex hull of n unsorted planar points in O(log n) time using O(n log h) work, with n-exponential probability, where h is the number of edges in the convex hull (h is O(n), but can be as small as O(1)). Our algorithm for unsorted inputs depends on the use of new in-place procedures, that is, procedures that are defined on a subset of elements in the input and that work without reordering the input. In order to achieve our n-exponential confidence bounds we use a new parallel technique called failure sweeping.</pre>
+</div>
+<div created="20150402001317667" modified="20150402001434767" title="Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;In-place techniques for parallel convex hull algorithms (preliminary version).&quot; Proceedings of the third annual ACM symposium on Parallel algorithms and architectures. ACM, 1991.">
+<pre>http://dl.acm.org/citation.cfm?id=113397
+
+We present a number of efficient parallel algorithms
+for constructing 2- and 3-dimensional
+convex hulls on a randomized CRCW PRAM.
+Specifically, we show how to build the convex
+hull of n pre-sorted points in the plane
+almost surely in O(1) time using O(n log n)
+processors, or, alternately, almost surely in
+O(log” n) time using an optimal number of
+processors. We also show how to find the convex
+hull of n unsorted points in R2 (resp., 3?s)
+in O(log n) time using O(n log h) work (resp.,
+0(log2 n) time using O(min{n logz h, n log n})
+work), with very high probability, where h is
+the number of edges in the convex hull (h is
+O(n), but can be as small as O(l)). Our algorithms
+for unsorted input depend on the use
+of new in-place procedures, that is, procedures
+that are defined on a subset of elements in the
+input and that work without re-ordering the
+input. For the pre-sorted case we also exploit
+a technique that allows one to modify an algorithm
+that assumes it is given points so that it
+can be used on hulls; we call such algorithms
+point-hull invariant.
+</pre>
+</div>
+<div created="20150402000353844" modified="20150402000920603" tags="" title="List of papers">
+<pre>[[Miller, Russ, and Quentin F. Stout. &quot;Efficient parallel convex hull algorithms.&quot; Computers, IEEE Transactions on 37.12 (1988): 1605-1618.]]
+
+[[Dehne, Frank, et al. &quot;A randomized parallel 3D convex hull algorithm for coarse grained multicomputers.&quot; Proceedings of the seventh annual ACM symposium on Parallel algorithms and architectures. ACM, 1995.]]
+
+[[Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;In-place techniques for parallel convex hull algorithms (preliminary version).&quot; Proceedings of the third annual ACM symposium on Parallel algorithms and architectures. ACM, 1991.]]
+
+[[Atallah, Mikhail J., and Michael T. Goodrich. &quot;Efficient parallel solutions to some geometric problems.&quot; Journal of Parallel and Distributed Computing 3.4 (1986): 492-507.]]
+
+[[Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. &quot;Parallel algorithms for higher-dimensional convex hulls.&quot; Foundations of Computer Science, 1994 Proceedings., 35th Annual Symposium on. IEEE, 1994.]]
+
+[[Diallo, Mohamadou, et al. &quot;Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers.&quot; Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.]]
+
+[[Akl, S. G. &quot;Optimal parallel algorithms for computing convex hulls and for sorting.&quot; Computing 33.1 (1984): 1-11.]]
+
+[[Srungarapu, Srikanth, et al. &quot;Fast two dimensional convex hull on the GPU.&quot; Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.]]
+
+[[Dıaz, Pedro, Diego R. Llanos, and Belén Palop. &quot;Parallelizing 2D-convex hulls on clusters: sorting matters.&quot; Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.]]
+
+[[Tiskin, Alexandre. &quot;Parallel convex hull computation by generalised regular sampling.&quot; Euro-Par 2002 Parallel Processing. Springer Berlin Heidelberg, 2002. 392-399.]]
+
+[[Day, A. M. &quot;Parallel implementation of 3D convex-hull algorithm.&quot; Computer-Aided Design 23.3 (1991): 177-188.]]
+
+[[Ghouse, Mujtaba R., and Michael T. Goodrich. &quot;Fast randomized parallel methods for planar convex hull construction.&quot; Computational Geometry 7.4 (1997): 219-235.]]</pre>
+</div>
+<div created="20150402001003105" modified="20150402001049755" title="Miller, Russ, and Quentin F. Stout. &quot;Efficient parallel convex hull algorithms.&quot; Computers, IEEE Transactions on 37.12 (1988): 1605-1618.">
+<pre>http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=9737&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D9737
+
+Parallel algorithms are presented to identify (i.e. detect and enumerate) the extreme points of the convex hull of a set of planar points using a hypercube, pyramid, tree, mesh-of-trees, mesh with reconfigurable bus, exclusive-read-exclusive-write parallel random-access machine (EREW PRAM), and modified AKS network. It is shown that the problem of identifying the convex hull for a set of planar points given arbitrarily, cannot be solved faster than sorting</pre>
+</div>
+<div created="20150402002229411" modified="20150402002306045" title="Srungarapu, Srikanth, et al. &quot;Fast two dimensional convex hull on the GPU.&quot; Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.">
+<pre>https://cstar.iiit.ac.in/~kkishore/ainaHull.pdf
+
+General purpose programming on the graphics processing units(GPGPU) has received a lot of attention in the parallel computing community as it promises to offer a large computational power at a very low price. GPGPU is best suited for regular data parallel algorithms. They are not directly amenable for algorithms which have irregular data access patterns such as convex hull, list ranking etc. In this paper, we present a GPU-optimized implementation for finding the convex hull of a two dimensional point set. Our implementation tries to minimize the impact of irregular data access patterns. Our implementation can find the convex hull of 10 million random points in less than 0.2 seconds and achieves a speedup of up to 14 over the standard sequential CPU implementation. We also discuss some of the practical issues relating to the implementation of convex hull algorithms on massively multi-threaded architectures like that of the GPU.</pre>
+</div>
 <div created="20150220172646606" modified="20150220173023373" tags="" title="Summary" type="text/vnd.tiddlywiki">
 <pre>Hi, welcome to my Parallel Algorithms 2015 mandatory website.
 This basis for this site is [[TiddlyWiki]].
@@ -5500,6 +5659,11 @@ Class Presentation Related
 * [[Convex Hulls]]
 
 </pre>
+</div>
+<div created="20150402002451579" modified="20150402002501808" title="Tiskin, Alexandre. &quot;Parallel convex hull computation by generalised regular sampling.&quot; Euro-Par 2002 Parallel Processing. Springer Berlin Heidelberg, 2002. 392-399.">
+<pre>http://link.springer.com/chapter/10.1007/3-540-45706-2_52
+
+The model of bulk-synchronous parallel (BSP) computation is an emerging paradigm of general-purpose parallel computing. We propose the first optimal deterministic BSP algorithm for computing the convex hull of a set of points in three-dimensional Euclidean space. Our algorithm is based on known fundamental results from combinatorial geometry, concerning small-sized, efficiently constructible ∈ -nets and ∈ -approximations of a given point set. The algorithm generalises the technique of regular sampling, used previously for sorting and two-dimensional convex hull computation. The cost of the simple algorithm is optimal only for extremely large inputs; we show how to reduce the required input size by applying regular sampling in a multi-level fashion.</pre>
 </div>
 <div created="20150220172551940" modified="20150220172639425" tags="" title="Topic Selection" type="text/plain">
 <pre>Finding the Convex Hull of a point set is a problem that has practical applications in 3d graphics and collision detection. My survey will focus on practical implementations of Parallel Convex Hull for commodity hardware. With focus on comparisons of speed and cost in implementation.</pre>
