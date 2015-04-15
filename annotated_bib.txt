@@ -1,0 +1,36 @@
+Miller, Russ, and Quentin F. Stout. "Efficient parallel convex hull algorithms." Computers, IEEE Transactions on 37.12 (1988): 1605-1618.
+- Miller et al shows algorithms for preforming the convex hull operation given pre-sorted input on a variety of parallel architectures: a hypercube, pyramid,
+tree, mesh-of-trees, mesh with reconfigurable bus, EREW PRAM, and a modified AKS network. These algorithms can be shown to be optimal with a running time of O(diameter) or O(log(n)) of the system iff the EREW model is enforced.
+- Generalization of Atallah et al onto assorted parallel computing architectures.
+
+
+Dehne, Frank, et al. "A randomized parallel 3D convex hull algorithm for coarse grained multicomputers." Proceedings of the seventh annual ACM symposium on Parallel algorithms and architectures. ACM, 1995.
+- Dehne et al supplies a high-probability of accuracy algorithm on EREQ PRAM of O(log(n)) time. Selecting the candidate points is the simpler half of the operation, finding the edges of the hull is approach probabilistically.
+
+Atallah, Mikhail J., and Michael T. Goodrich. "Efficient parallel solutions to some geometric problems." Journal of Parallel and Distributed Computing 3.4 (1986): 492-507.
+-Alogrithims presented are implementation of the algorithm found in our textbook (initially described in this paper)
+
+
+Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. "Parallel algorithms for higher-dimensional convex hulls." Foundations of Computer Science, 1994 Proceedings., 35th Annual Symposium on. IEEE, 1994.
+- Approach higher dimensional convex hulls by recursively slicing the space, then merging solved hulls.
+
+
+Diallo, Mohamadou, et al. "Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers." Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.
+- added triangulation to work by Atallah et al and applied to thte "course grained" computer model. Precursor to Dehne et al.
+
+
+Srungarapu, Srikanth, et al. "Fast two dimensional convex hull on the GPU." Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.
+- Practical application of qhull onto GPU/CUDA
+Dıaz, Pedro, Diego R. Llanos, and Belén Palop. "Parallelizing 2D-convex hulls on clusters: sorting matters." Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.
+
+
+Day, A. M. "Parallel implementation of 3D convex-hull algorithm." Computer-Aided Design 23.3 (1991): 177-188.
+- parallel qhull in occam and C
+
+
+Ghouse, Mujtaba R., and Michael T. Goodrich. "Fast randomized parallel methods for planar convex hull construction." Computational Geometry 7.4 (1997): 219-235.
+- Ghouse et al proposes the O(1) and O(nlog(n)) work algorithm for CRCW PRAM. The convex hull problem is presented as a linear programming problem and solved using probabilistic parallel linear programming techniques. accuracy is low enough that a second error checking sweep is used.
+
+C. Bradford Barber, David P. Dobkin, and Hannu Huhdanpaa. 1996. The quickhull algorithm for convex hulls. ACM Trans. Math. Softw. 22, 4 (December 1996), 469-483. DOI=10.1145/235815.235821 http://doi.acm.org/10.1145/235815.235821
+
+Ayal Stein, Eran Geva, Jihad El-Sana, "CudaHull: Fast parallel 3D convex hull on the GPU, Computers & Graphics", Volume 36, Issue 4, June 2012, Pages 265-271, ISSN 0097-8493, http://dx.doi.org/10.1016/j.cag.2012.02.012.
