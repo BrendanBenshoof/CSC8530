@@ -1,0 +1,66 @@
+\documentclass[10pt,a4paper,draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Brendan Benshoof}
+\title{Overview of Parallel Convex Hull Algorithims}
+\begin{document}
+\maketitle{}
+
+
+\section{Introduction}
+
+The Convex Hull problem can be considered one of the most well studied problems in computational geometry. There are numerous centralized algorithms and an achievable lower bound of O(nlog(n)) time (the sorting bound). It is surprising that there are a comparatively smaller number of parallel algorithms that have been researched.
+Two major approaches (Divide and Conquer vs. Sampling) and three major algorithms (Atallah's algorithm, qHull, and High Confidence sampling) dominate literature on the topic.
+ 
+
+\subsection{Problem Formulation}
+
+A convex hull, is a graph of a subset of a set of points in space such that the convex polytope described by that graph contains all points in the set.
+
+The convex hull problem is involved in many common computations including collision detection and delunay-triangulation/voronoi tessellation.
+
+
+\section{Overview of Literature}
+
+Literature can be divided into two strong groupings. Those that derive from a high-probability of accuracy sampling method and those papers who's algorithm derives from divide and conquer approach.
+
+The papers concerning divide and conquer approaches can be divided further into the papers that implement the parallel convex hull algorithm for EREW PRAM presented by Atallah et al versus the more modern algorithm which derive from the quick hull algorithm presented by Barber et al.
+
+
+\section{Divide and Conquer methods}
+
+Divide and Conquer is one of the basic computer science problem solving techniques. It's basis is in find a method to reduce a problem to simpler sub-problems then merge those sub-problems into a global solution. Breaking the global problem into sub-problems makes it well adapted to application in parallel algorithms, where each sub-problem can be solved in parallel, with most time being consumed by merging the sub-problems.
+
+
+\subsection{Properties and applications}
+
+Most papers discussed in this section derive from a divide and conquer method presented by Atallah et al.
+This algorithm is only defined for planar convex hull.
+
+In practice, on GPU implementations, modern algorithms for convex hull calculation are based on the quick hull algorithim presented by Barber et .
+\subsection{Overview of literature}
+\subsubsection{Atallah et al}
+\subsubsection{Diallo et al}
+\subsubsection{Miller et al}
+
+\subsection{qhull derived methods}
+\subsubsection{Barber et al}
+\subsubsection{Day}
+\subsubsection{Srungarapu et al}
+\subsubsection{Stein et al}
+
+
+
+\subsection{Amato et al}
+
+
+
+\section{Sampling Methods}
+\subsection{Properties and applications}
+\subsection{Overview of literature}
+\subsubsection{Dehne et al}
+\subsubsection{Ghouse et al}
+\end{document}
