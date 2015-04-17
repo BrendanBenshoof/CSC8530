@@ -42,19 +42,47 @@ This algorithm is only defined for planar convex hull.
 
 In practice, on GPU implementations, modern algorithms for convex hull calculation are based on the quick hull algorithim presented by Barber et .
 \subsection{Overview of literature}
+Here I overview the papers I have categorized as Divide and Conquer approaches to parlallel convex hull. They are presented in approximate order of development and publication. I present a summary of the contribution of the paper and a dissucssion of how it effected later work.
 \subsubsection{Atallah et al}
+Atallah et al present a parallel variation of traditional divide and conquer algorithms for $O(n)$ processors. They present an $O(\log(n))$ time algorithm given $O(n)$ processors. Rather than splitting the problem space in an iterative binary fashion, they subdivide the problem space into $O(\sqrt{n})$ subdivisions. This allows the sub-problems each to be processed in parallel by $O(\sqrt{n})$ processors. This allows each sub-problem to be viewed independently as a problem with $O(n)$ input and $O(n)$ processors and this method can be applied recursively until trivial problems are established.
+
+This elegant dividing of the problem space hinges on even subdivision of work. In the case of parallel convex hull, points are sorted along any convent axis using $O(\log(n))$ time (which dominates run-time).
+Then $O(\sqrt{n})$ contiguous portions of $O(\sqrt{n})$ points are recursively solved and merged.
+
+When recursively subdividing the space, while the ratio between bits of input and number of processors is $O(1)$ it is realistic to assume that data points outnumber the processors by more than three to one.
+Thus, is subdivision reaches three or less points in a group, it can cease further subdivision as sets of points three or less have a trivial convex hull.
+More realistically, once the subdivision cannot continue due to lack of processors, the convex hull of the $O(1)$ remaining points can be solved by a single processor in constant time using any one of the established sequential methods.
+If all data has been provided initially to all nodes, the subdivision step can be preformed in $O(\log(n))$ time.
+
+
+The bulk of computation is contained in the merging step. The recursive division step has created a merge tree, requiring $O(\log(n))$ iterations of the merging algorithm.
+Once the points have been separated into trivial sub-problems they are merged in parallel in constant time. $O(\sqrt(n))$ subsets are merged using $O(n)$ processors, therefore we can assign one processor to each pair of potential merges.
+
+%% How does merging actually happen in constant time per level
+
+Atallah et al's algorithm is applied to more specific parallel computing architectures in later papers.
+
 \subsubsection{Diallo et al}
+
+
 \subsubsection{Miller et al}
 
 \subsection{qhull derived methods}
 \subsubsection{Barber et al}
+Barber et al does not present a parallel algorithm. It is included in this survey as it presents the QuickHull algorithm which other papers present a parallel variation of for GPU computing.
+
+QuickHull's approach is to grow a area/volume which aggressively discards points and divides the remaining points into smaller sub-problems along the faces of the area's growth.
+Barber et al presents QuickHull as a solution to 2d convex hull, however unlike many other sequential convex hull algorithms it is extended trivially into higher dimensions.
+Like many other sequential convex hull algorithms, it requires $O(n\log(n))$ time (the sorting lower bound).
+
+
 \subsubsection{Day}
 \subsubsection{Srungarapu et al}
 \subsubsection{Stein et al}
 
 
 
-\subsection{Amato et al}
+\subsubsection{Amato et al}
 
 
 
