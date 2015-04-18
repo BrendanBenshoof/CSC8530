@@ -5,7 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \author{Brendan Benshoof}
-\title{Overview of Parallel Convex Hull Algorithims}
+\title{Overview of Parallel Convex Hull Algorithms}
 \begin{document}
 \maketitle{}
 
@@ -13,7 +13,7 @@
 \section{Introduction}
 
 The Convex Hull problem can be considered one of the most well studied problems in computational geometry. There are numerous centralized algorithms and an achievable lower bound of O(nlog(n)) time (the sorting bound). It is surprising that there are a comparatively smaller number of parallel algorithms that have been researched.
-Two major approaches (Divide and Conquer vs. Sampling) and three major algorithms (Atallah's algorithm, qHull, and High Confidence sampling) dominate literature on the topic.
+Two major approaches (Divide and Conquer vs. Sampling) and three major algorithms (Atallah's algorithm\cite{Atallah1986Efficient}, qHull, and High Confidence sampling) dominate literature on the topic.
  
 
 \subsection{Problem Formulation}
@@ -40,9 +40,9 @@ Divide and Conquer is one of the basic computer science problem solving techniqu
 Most papers discussed in this section derive from a divide and conquer method presented by Atallah et al.
 This algorithm is only defined for planar convex hull.
 
-In practice, on GPU implementations, modern algorithms for convex hull calculation are based on the quick hull algorithim presented by Barber et .
+In practice, on GPU implementations, modern algorithms for convex hull calculation are based on the quick hull algorithm presented by Barber et .
 \subsection{Overview of literature}
-Here I overview the papers I have categorized as Divide and Conquer approaches to parlallel convex hull. They are presented in approximate order of development and publication. I present a summary of the contribution of the paper and a dissucssion of how it effected later work.
+Here I overview the papers I have categorized as Divide and Conquer approaches to parallel convex hull. They are presented in approximate order of development and publication. I present a summary of the contribution of the paper and a discussion of how it effected later work.
 \subsubsection{Atallah et al}
 Atallah et al present a parallel variation of traditional divide and conquer algorithms for $O(n)$ processors. They present an $O(\log(n))$ time algorithm given $O(n)$ processors. Rather than splitting the problem space in an iterative binary fashion, they subdivide the problem space into $O(\sqrt{n})$ subdivisions. This allows the sub-problems each to be processed in parallel by $O(\sqrt{n})$ processors. This allows each sub-problem to be viewed independently as a problem with $O(n)$ input and $O(n)$ processors and this method can be applied recursively until trivial problems are established.
 
@@ -91,4 +91,8 @@ Like many other sequential convex hull algorithms, it requires $O(n\log(n))$ tim
 \subsection{Overview of literature}
 \subsubsection{Dehne et al}
 \subsubsection{Ghouse et al}
+
+\bibliography{cites}
+	\bibliographystyle{plain}
+
 \end{document}

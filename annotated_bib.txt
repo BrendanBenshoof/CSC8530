@@ -16,7 +16,7 @@ Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. "Parallel algorithms f
 
 
 Diallo, Mohamadou, et al. "Scalable 2d convex hull and triangulation algorithms for coarse grained multicomputers." Journal of Parallel and Distributed Computing 56.1 (1999): 47-70.
-- added triangulation to work by Atallah et al and applied to thte "course grained" computer model. Precursor to Dehne et al.
+- added triangulation to work by Atallah et al and applied to the "course grained" computer model. Precursor to Dehne et al.
 
 
 Srungarapu, Srikanth, et al. "Fast two dimensional convex hull on the GPU." Advanced Information Networking and Applications (WAINA), 2011 IEEE Workshops of International Conference on. IEEE, 2011.
