@@ -87,9 +87,20 @@ Like many other sequential convex hull algorithms, it requires $O(n\log(n))$ tim
 
 
 \section{Sampling Methods}
+
+
 \subsection{Properties and applications}
+Sampling methods are generally not searching for solutions in a geometrically inutitive way.
+They pose the convex hull problem as a linear programming problem and utilize conventional parallel search methods to generate a high confidance set of points as members of the convex hull.
+This presents the problem, that while finding the set of points in a convex hull is a more computationally simple task than finding the entire hull, most applications require a full description of bother the verticies and edges of the convex hull polytope.
 \subsection{Overview of literature}
+
+
 \subsubsection{Dehne et al}
+It is worth noting that this work shares coauthor with Atallah et al in Michael Goodrich.
+This work presents 
+
+
 \subsubsection{Ghouse et al}
 
 \bibliography{cites}
