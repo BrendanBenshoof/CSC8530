@@ -1,9 +1,10 @@
-\documentclass[10pt,a4paper,draft]{report}
+\documentclass[10pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{graphicx}
+\usepackage{graphicx,caption,subcaption}
+\usepackage{varwidth,lipsum}
 \author{Brendan Benshoof}
 \title{Overview of Parallel Convex Hull Algorithms}
 \begin{document}
@@ -19,8 +20,30 @@ Two major approaches (Divide and Conquer vs. Sampling) and three major algorithm
 \subsection{Problem Formulation}
 
 A convex hull, is a graph of a subset of a set of points in space such that the convex polytope described by that graph contains all points in the set.
+In a geometric sense, this means describing a minimal space such that given any two points in a set, the line segment between them falls wholely within the set.
+
+\begin{figure}[h!!]
+        \centering
+\begin{subfigure}[b]{0.4\textwidth}
+\includegraphics[width=\textwidth]{imgs/convex.png}
+
+  \captionof{figure}{A convex set}
+
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\includegraphics[width=\textwidth]{imgs/notconvex.png}
+  \captionof{figure}{A non-convex (concave) set}
+
+\end{subfigure}
+
+\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape User A1 at en.wikipedia }}
+\end{figure}
+
+There are a variety of sequential algorithims to solve the 2d planar convex hull problem. Grahm's scan\cite{graham1972efficient} and QuickHull\cite{Barber1996} are worthy of note as solutions seeing common use. QuickHull is of specific interest as an examined line of parallel algorithims are based on it\cite{Stein2012CudaHull}\cite{SrikanthFast}.
 
 The convex hull problem is involved in many common computations including collision detection and delunay-triangulation/voronoi tessellation.
+
+
 
 
 \section{Overview of Literature}
@@ -37,14 +60,16 @@ Divide and Conquer is one of the basic computer science problem solving techniqu
 
 \subsection{Properties and applications}
 
-Most papers discussed in this section derive from a divide and conquer method presented by Atallah et al.
+Most papers discussed in this section derive from a divide and conquer method presented by Atallah et al\cite{Atallah1986Efficient}.
 This algorithm is only defined for planar convex hull.
 
 In practice, on GPU implementations, modern algorithms for convex hull calculation are based on the quick hull algorithm presented by Barber et .
 \subsection{Overview of literature}
 Here I overview the papers I have categorized as Divide and Conquer approaches to parallel convex hull. They are presented in approximate order of development and publication. I present a summary of the contribution of the paper and a discussion of how it effected later work.
+
+
 \subsubsection{Atallah et al}
-Atallah et al present a parallel variation of traditional divide and conquer algorithms for $O(n)$ processors. They present an $O(\log(n))$ time algorithm given $O(n)$ processors. Rather than splitting the problem space in an iterative binary fashion, they subdivide the problem space into $O(\sqrt{n})$ subdivisions. This allows the sub-problems each to be processed in parallel by $O(\sqrt{n})$ processors. This allows each sub-problem to be viewed independently as a problem with $O(n)$ input and $O(n)$ processors and this method can be applied recursively until trivial problems are established.
+Atallah et al\cite{Atallah1986Efficient} present a parallel variation of traditional divide and conquer algorithms for $O(n)$ processors. They present an $O(\log(n))$ time algorithm given $O(n)$ processors. Rather than splitting the problem space in an iterative binary fashion, they subdivide the problem space into $O(\sqrt{n})$ subdivisions. This allows the sub-problems each to be processed in parallel by $O(\sqrt{n})$ processors. This allows each sub-problem to be viewed independently as a problem with $O(n)$ input and $O(n)$ processors and this method can be applied recursively until trivial problems are established.
 
 This elegant dividing of the problem space hinges on even subdivision of work. In the case of parallel convex hull, points are sorted along any convent axis using $O(\log(n))$ time (which dominates run-time).
 Then $O(\sqrt{n})$ contiguous portions of $O(\sqrt{n})$ points are recursively solved and merged.
@@ -62,46 +87,97 @@ Once the points have been separated into trivial sub-problems they are merged in
 
 Atallah et al's algorithm is applied to more specific parallel computing architectures in later papers.
 
-\subsubsection{Diallo et al}
 
 
 \subsubsection{Miller et al}
 
+``Efficient parallel convex hull algorithms''\cite{Russ1988Efficient} was published in 1988, two years after Atallah et al's\cite{Atallah1986Efficient} foundational work.
+Miller et al\cite{Russ1988Efficient} shows algorithms for preforming the convex hull operation given pre-sorted input on a variety of parallel architectures: a hypercube, pyramid,
+tree, mesh-of-trees, mesh with reconfigurable bus, EREW PRAM, and a modified AKS network.
+This paper allows the algorithim described by Atallah et al\cite{Atallah1986Efficient} to be applied to a variety of practical parallel computing architechtures while retaining the $O(log(n)$ time and $O(nlog(n)$ work properties. However becuase the algorithims are predicated on being pre-sorted (by order on any axis). This means that in cases of arbitrary input order, the algorithims are further bounded by the cost of sorting on that platform.
+
+
+\subsubsection{Ferreira et al}
+
+Ferreira et al\cite{Mohamadou1999Scalable} further extends Atallah et al onto a ``Coarse Grained'' computer model. This shows the algorithm can be preformed while preserving it's cost on a variety of limited communication systems. This genralization shows that further proof that runtime and work established by Atallah et al can be maintained on a given ``coarse grained'' parallel computer system.
+
+
 \subsection{qhull derived methods}
 \subsubsection{Barber et al}
-Barber et al does not present a parallel algorithm. It is included in this survey as it presents the QuickHull algorithm which other papers present a parallel variation of for GPU computing.
+Barber et al\cite{Barber1996} does not present a parallel algorithm. It is included in this survey as it presents the QuickHull algorithm which other papers present a parallel variation of for GPU computing.
 
 QuickHull's approach is to grow a area/volume which aggressively discards points and divides the remaining points into smaller sub-problems along the faces of the area's growth.
 Barber et al presents QuickHull as a solution to 2d convex hull, however unlike many other sequential convex hull algorithms it is extended trivially into higher dimensions.
 Like many other sequential convex hull algorithms, it requires $O(n\log(n))$ time (the sorting lower bound).
 
 
-\subsubsection{Day}
+
+
 \subsubsection{Srungarapu et al}
+\begin{itemize}
+\item{Srungarapu S., Reddy D.P., Kothapalli K. and Narayanan, P.J.}
+\item{2011}
+\end{itemize}
+This paper provides initial implementation of 2D QuickHull in CUDA. It provides an $O(n\frac{log(p)}{p})$ time algorithim with $O(p)$ processors.
+
+
 \subsubsection{Stein et al}
+\begin{itemize}
+\item{Ayal Stein, EranGeva, JihadEl-Sana}
+\item{2012}
+\end{itemize}
+This paper\cite{Stein2012CudaHull} provides implementation of 3D QuickHull for CUDA. They provide a $O(\frac{n}{p}log(n))$ time algorithm, with a $O(h)$ sequential cleanup setup (where $h$ is the number of points on the convex hull) to provide a proper convex polytope description of the Hull (nontrivial in 3+ dimensions). 
 
-
-
-\subsubsection{Amato et al}
 
 
 
 \section{Sampling Methods}
 
 
-\subsection{Properties and applications}
 Sampling methods are generally not searching for solutions in a geometrically inutitive way.
 They pose the convex hull problem as a linear programming problem and utilize conventional parallel search methods to generate a high confidance set of points as members of the convex hull.
 This presents the problem, that while finding the set of points in a convex hull is a more computationally simple task than finding the entire hull, most applications require a full description of bother the verticies and edges of the convex hull polytope.
 \subsection{Overview of literature}
 
 
+\subsubsection{Amato et al}
+
+\begin{itemize}
+\item{Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos.}
+\item{1994}
+\end{itemize}
+This paper provides a EREW PRAM model for solving high dimension convex hulls using probabilistic linear programming methods in $O(log(n))$ time with $O(nlog(n)+n^{\frac{d}{2}})$ work.
+
 \subsubsection{Dehne et al}
+\begin{itemize}
+\item{Dehne, Frank and Deng, Xiaotie and Dymond, Patrick and Fabri, Andreas and Khokhar, Ashfaq A.}
+\item{1995}
+\end{itemize}
+Dehne et al\cite{Dehne} supplies a high-probability of accuracy algorithm for 3d convex hull on EREW PRAM of O(log(n)) time by converting the convex hull problem into a linear program. The linear program solution only provides the set of points on the hull and a linear time method of building the polytope is utilized.
+
 It is worth noting that this work shares coauthor with Atallah et al in Michael Goodrich.
 This work presents 
 
 
 \subsubsection{Ghouse et al}
+
+\begin{itemize}
+\item{Ghouse, Mujtaba R., and Michael T. Goodrich}
+\item{1997}
+\end{itemize}
+Ghouse et al proposes the O(1) and O(nlog(n)) work algorithm for CRCW PRAM. The convex hull problem is presented as a linear programming problem and solved using probabilistic parallel linear programming techniques.
+
+\phantom{\cite{ChowParallel}}
+\phantom{\cite{NancyParallel}}
+\phantom{\cite{SrikanthFast}}
+\phantom{\cite{Day1991Parallel}}
+\phantom{\cite{Mujtaba1997Fast}}
+
+
+
+
+
+
 
 \bibliography{cites}
 	\bibliographystyle{plain}

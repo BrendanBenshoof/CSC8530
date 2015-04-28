@@ -5,7 +5,7 @@ tree, mesh-of-trees, mesh with reconfigurable bus, EREW PRAM, and a modified AKS
 
 
 Dehne, Frank, et al. "A randomized parallel 3D convex hull algorithm for coarse grained multicomputers." Proceedings of the seventh annual ACM symposium on Parallel algorithms and architectures. ACM, 1995.
-- Dehne et al supplies a high-probability of accuracy algorithm on EREQ PRAM of O(log(n)) time. Selecting the candidate points is the simpler half of the operation, finding the edges of the hull is approach probabilistically.
+- Dehne et al supplies a high-probability of accuracy algorithm on EREW PRAM of O(log(n)) time. Selecting the candidate points is the simpler half of the operation, finding the edges of the hull is approach probabilistically.
 
 Atallah, Mikhail J., and Michael T. Goodrich. "Efficient parallel solutions to some geometric problems." Journal of Parallel and Distributed Computing 3.4 (1986): 492-507.
 -Alogrithims presented are implementation of the algorithm found in our textbook (initially described in this paper)
@@ -23,9 +23,6 @@ Srungarapu, Srikanth, et al. "Fast two dimensional convex hull on the GPU." Adva
 - Practical application of qhull onto GPU/CUDA
 Dıaz, Pedro, Diego R. Llanos, and Belén Palop. "Parallelizing 2D-convex hulls on clusters: sorting matters." Proc. XV Jornadas de Paralelismo, Almerıa, Spain (2004): 247-252.
 
-
-Day, A. M. "Parallel implementation of 3D convex-hull algorithm." Computer-Aided Design 23.3 (1991): 177-188.
-- parallel qhull in occam and C
 
 
 Ghouse, Mujtaba R., and Michael T. Goodrich. "Fast randomized parallel methods for planar convex hull construction." Computational Geometry 7.4 (1997): 219-235.
